@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Cadastro Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-input [(ngModel)]="usuario.nome" label="Nome" labelPlacement="floating" placeholder="Digite um nome completo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="usuario.email"label="E-mail" type="email"abelPlacement="floating" placeholder="Digite um e-mail válido"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="usuario.senha" label="Senha" type="password" labelPlacement="floating" placeholder="Digite uma senha"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="confirmarSenha" label="Confirma Senha" type="password" labelPlacement="floating" placeholder="Repita a sua senha"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="salvarUsuario()" expand="full" color="success">SALVAR</ion-button>
+  <ion-button routerLink="/" expand="full" fill="clear" color="dark">VOLTAR</ion-button>
+
+</ion-content>

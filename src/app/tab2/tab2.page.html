@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Produtos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-item>
+    <ion-input label="Digite um ID:" [(ngModel)]="id">
+    </ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="buscarPorID()">
+      Filtrar Produto
+  </ion-button>
+  <ion-button expand="block" fill="outline" (click)="buscarProdutos()">
+    Limpar Filtro
+  </ion-button>
+
+  <div *ngIf="produto">
+    <h2 style="color: blue">Resultado da Busca:</h2>
+    <ion-item>
+      <ion-badge slot="start">{{produto.id}}</ion-badge>
+      <ion-label>
+        <h3>{{produto.nome}}</h3>
+        <p>{{produto.descricao}}</p>
+        <p>{{produto.validade}}</p>
+        <ion-badge color="tertiary" slot="end">R$: {{produto.valor | number: '1.2-2'}}</ion-badge>
+      </ion-label>
+    </ion-item>
+  </div>
+
+  <ion-item *ngFor="let user of listaProdutos">
+    <ion-badge slot="start">{{user.id}}</ion-badge>
+    <ion-label>
+      <h3>{{user.nome}}</h3>
+      <p>{{user.descricao}}</p>
+      <p>{{user.validade}}</p>
+      <ion-badge color="tertiary" slot="end">R$: {{user.valor | number: '1.2-2'}}</ion-badge>
+    </ion-label>
+  </ion-item>
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="success" routerLink="/cadastro-produto">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
